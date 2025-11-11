@@ -153,7 +153,7 @@ Kuldeep Chaudhary
 
 🔗 GitHub: Kuldeepch13
 
-🔗 LinkedIn: Kuldeep Chaudhary
+🔗 LinkedIn: [Kuldeep Chaudhary](https://www.linkedin.com/in/kuldeep-chaudhary-293857251/)
 
 📜 License
 
