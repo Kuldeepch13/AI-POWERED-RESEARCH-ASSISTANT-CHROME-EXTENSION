@@ -1,171 +1,398 @@
-🧠 AI-Powered Research Assistant
-Chrome Extension + Spring Boot Backend Integration
+# 🔬 AI-Powered Research Assistant
 
+<div align="center">
 
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge\&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-green?style=for-the-badge\&logo=springboot)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge\&logo=react)
+![Chrome Extension](https://img.shields.io/badge/Chrome_Extension-yellow?style=for-the-badge\&logo=googlechrome)
+![Gemini AI](https://img.shields.io/badge/Gemini-AI-purple?style=for-the-badge\&logo=google)
+![MIT License](https://img.shields.io/badge/License-MIT-red?style=for-the-badge)
 
+### 🚀 Research Smarter. Summarize Faster. Learn Better.
 
+An AI-powered Chrome Extension that helps users summarize articles, extract key insights, generate research notes, and accelerate learning directly from the browser.
 
+</div>
 
+---
 
+# ✨ Overview
 
-📋 Overview
+Researching online often means reading long articles, blogs, documentation, and academic content.
 
-The AI-Powered Research Assistant is a browser extension designed to make online reading and research more efficient.
-With just a click, the extension captures selected text from any webpage and sends it to a Spring Boot backend powered by AI summarization APIs (e.g., Gemini API).
+AI-Powered Research Assistant helps users:
 
-The backend processes and returns a concise summary — helping users quickly understand complex information without leaving the page.
+* 📄 Summarize lengthy content
+* 🎯 Extract key takeaways
+* 📝 Generate study notes
+* 🧠 Create concise research summaries
+* 🔍 Understand complex topics quickly
+* ⚡ Save hours of manual reading
 
-🚀 Key Features
+---
 
-🔍 Smart Summarization: Highlights and summarizes webpage text in real time.
+# 📸 Application Workflow
 
-🔗 Chrome Extension UI: Lightweight popup interface for quick interactions.
+```mermaid
+flowchart TD
 
-⚙️ Spring Boot Backend: Handles API requests and AI-based text summarization.
+A[User Opens Webpage]
 
-🌐 Cross-Origin Support (CORS): Seamless communication between frontend and backend.
+A --> B[Chrome Extension]
 
-💾 Notes Saving (optional): Allows storing summaries locally or on the server.
+B --> C[Extract Page Content]
 
-🔐 Environment Variable Support: Keeps API keys secure and configurable.
+C --> D[React Frontend]
 
-🏗️ Architecture
-[ User ] ──► [ Chrome Extension (Frontend) ]
-                    │
-                    ▼
-        [ Spring Boot Backend (API Layer) ]
-                    │
-                    ▼
-          [ AI Summarization Engine (Gemini API) ]
+D --> E[Spring Boot Backend]
 
-🧩 Tech Stack
-Frontend (Chrome Extension)
+E --> F[Gemini AI]
 
-HTML5, CSS3, JavaScript (Vanilla)
+F --> G[Generate Summary]
 
-Chrome Extension APIs (manifest.json)
+G --> H[Generate Key Insights]
 
-Popup UI + Content Scripts
+H --> I[Return Structured Response]
 
-Backend (Spring Boot)
+I --> J[Display Results]
+```
 
-Java 17+
+---
 
-Spring Boot 3.x
+# 🧠 System Architecture
 
-WebClient for API calls
+```mermaid
+graph LR
 
-Lombok for cleaner code
+User --> Extension[Chrome Extension]
 
-REST Controller + CORS configuration
+Extension --> React[React UI]
 
-⚙️ Installation & Setup
-🔹 Step 1: Clone the repository
-git clone https://github.com/Kuldeepch13/RESEARCH-ASSISTANT.git
-cd RESEARCH-ASSISTANT
+React --> API[Spring Boot API]
 
-🔹 Step 2: Run the Spring Boot backend
+API --> Gemini[Gemini AI]
 
-Open the project in VS Code or IntelliJ.
+Gemini --> API
 
-Make sure you have Java 17+ and Maven installed.
+API --> Extension
 
-Add your API key in application.properties:
+Extension --> User
+```
 
-gemini.api.url=https://api.gemini.ai/v1/summarize
-gemini.api.key=YOUR_API_KEY
+---
 
+# 🔁 Sequence Diagram
 
-Run:
+```mermaid
+sequenceDiagram
 
-./mvnw spring-boot:run
+participant User
+participant Extension
+participant Backend
+participant Gemini
 
+User->>Extension: Click Summarize
 
-The backend will start on:
-👉 http://localhost:8080/api/research/process
+Extension->>Backend: Send Page Content
 
-🔹 Step 3: Load Chrome Extension
+Backend->>Gemini: Generate Summary
 
-Open Chrome → Extensions → Manage Extensions.
+Gemini-->>Backend: Summary + Insights
 
-Enable Developer Mode.
+Backend-->>Extension: JSON Response
 
-Click Load unpacked.
+Extension-->>User: Display Results
+```
 
-Select the folder:
+---
 
-/RESEARCH-ASSISTANT/extension/
+# 🚀 Key Features
 
+## 📄 Article Summarization
 
-The extension icon should now appear in your Chrome toolbar.
+Generate concise summaries from:
 
-🧠 Usage
+* Blogs
+* Articles
+* Documentation
+* Research Papers
+* News Content
 
-Highlight text on any web page.
+---
 
-Click the Research Assistant Chrome Extension icon.
+## 🎯 Key Insight Extraction
 
-The selected text is automatically sent to your backend.
+Automatically identify:
 
-The AI model summarizes the content and returns the result instantly.
+* Important points
+* Major conclusions
+* Core concepts
+* Actionable insights
 
-📂 Project Structure
-RESEARCH-ASSISTANT/
+---
+
+## 📝 Smart Notes Generation
+
+Convert lengthy content into:
+
+* Study notes
+* Research notes
+* Quick revision points
+* Learning summaries
+
+---
+
+## ⚡ One Click Workflow
+
+No copy-pasting.
+
+Analyze web content directly from the browser.
+
+---
+
+## 🤖 Gemini AI Integration
+
+Leverages Google's Gemini AI to generate:
+
+* High-quality summaries
+* Research insights
+* Learning material
+
+---
+
+# 🛠 Tech Stack
+
+## Backend
+
+* Java 21
+* Spring Boot
+* Spring Web
+* REST APIs
+
+## Frontend
+
+* React.js
+* Tailwind CSS
+
+## Browser Extension
+
+* Chrome Extension APIs
+* Manifest V3
+
+## AI
+
+* Google Gemini API
+
+## Build Tools
+
+* Maven
+* npm
+
+---
+
+# 📂 Project Structure
+
+```bash
+AI-POWERED-RESEARCH-ASSISTANT/
 │
-├── src/main/java/com/research_assistant/
-│   ├── ResearchController.java       # REST endpoint for summarization
-│   ├── ResearchService.java          # Calls Gemini API
-│   ├── ResearchRequest.java          # Request DTO
-│   ├── GeminiResponse.java           # Response model
-│   └── ResearchAssistantApplication.java
+├── backend/
+│   ├── controller/
+│   ├── service/
+│   ├── dto/
+│   ├── config/
+│   └── application.properties
+│
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   └── services/
 │
 ├── extension/
-│   ├── manifest.json                 # Chrome extension manifest
-│   ├── popup.html                    # UI for extension
-│   ├── popup.js                      # Handles user actions
-│   ├── content.js                    # Injected into web pages
-│   └── style.css                     # Popup styles
+│   ├── manifest.json
+│   ├── content.js
+│   ├── popup.js
+│   └── background.js
 │
-├── pom.xml                           # Maven project file
-├── .gitignore
-└── README.md
+├── screenshots/
+│
+├── README.md
+└── LICENSE
+```
 
-🔑 Environment Variables
-Variable	Description	Example
-GEMINI_API_URL	API endpoint for Gemini summarization	https://api.gemini.ai/v1/summarize
-GEMINI_API_KEY	Your Gemini API key	sk-xxxxxxx
-📈 Future Improvements
+---
 
-🧩 Support multiple AI models (Gemini, OpenAI, Claude)
+# ⚙️ Installation
 
-💾 Add user authentication and history tracking
+## Clone Repository
 
-🧠 Add "Research Notes" dashboard in extension
+```bash
+git clone https://github.com/Kuldeepch13/AI-POWERED-RESEARCH-ASSISTANT-CHROME-EXTENSION.git
 
-🌍 Multi-language summarization support
+cd AI-POWERED-RESEARCH-ASSISTANT-CHROME-EXTENSION
+```
 
-🎨 Improved UI with dark/light modes
+---
 
-🧑‍💻 Author
+## Backend Setup
 
-Kuldeep Chaudhary
-📧 dc629753@gmail.com
+```bash
+cd backend
 
-🔗 GitHub: Kuldeepch13
+mvn clean install
 
-🔗 LinkedIn: [Kuldeep Chaudhary](https://www.linkedin.com/in/kuldeep-chaudhary-293857251/)
+mvn spring-boot:run
+```
 
-📜 License
+---
 
-This project is licensed under the MIT License – see the LICENSE
- file for details.
+## Frontend Setup
 
-❤️ Acknowledgements
+```bash
+cd frontend
 
-Google Gemini API
+npm install
 
-Spring Boot
+npm run dev
+```
 
-Chrome Extensions Documentation
+---
 
-Inspiration from real-world research productivity tools.
+## Configure Gemini API Key
+
+Create:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+---
+
+## Load Extension
+
+1. Open Chrome
+2. Visit chrome://extensions
+3. Enable Developer Mode
+4. Click Load Unpacked
+5. Select extension folder
+
+---
+
+# 📡 API Endpoint
+
+## Summarize Content
+
+```http
+POST /api/research/summarize
+```
+
+### Request
+
+```json
+{
+  "content": "Long article content..."
+}
+```
+
+### Response
+
+```json
+{
+  "summary": "AI-generated summary",
+  "keyInsights": [
+    "Insight 1",
+    "Insight 2",
+    "Insight 3"
+  ]
+}
+```
+
+---
+
+# 🎯 Use Cases
+
+### Students
+
+* Research projects
+* Assignment preparation
+* Exam revision
+
+### Developers
+
+* Documentation summaries
+* Technical research
+* Learning new technologies
+
+### Professionals
+
+* Industry research
+* Market analysis
+* Knowledge gathering
+
+### Content Creators
+
+* Topic research
+* Content ideation
+* Competitor analysis
+
+---
+
+# 🔒 Security
+
+* Input validation
+* Secure API communication
+* Environment variable protection
+* CORS configuration
+
+---
+
+# 📈 Future Enhancements
+
+* PDF Research Support
+* YouTube Video Summarization
+* Research History
+* User Authentication
+* Multi-Language Support
+* Citation Generation
+* Export to PDF
+* Export to Markdown
+* AI Chat with Research Content
+
+---
+
+# 🧪 Future Engineering Improvements
+
+* Redis Caching
+* PostgreSQL Storage
+* JWT Authentication
+* Docker Support
+* CI/CD Pipelines
+* Monitoring & Logging
+* Rate Limiting
+* WebSocket Updates
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Push changes
+5. Open a Pull Request
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+Copyright (c) 2026 Kuldeep Chaudhary
